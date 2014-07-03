@@ -1,0 +1,24 @@
+{
+  "name": "git-hook-manager",
+  "version": "0.1.0",
+  "description": "A command-line tool to set up and manage common used git hooks",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/timoweiss/git-hook-manager.git"
+  },
+  "keywords": [
+    "git",
+    "hooks",
+    "manager"
+  ],
+  "author": "Timo Weiß",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timoweiss/git-hook-manager/issues"
+  },
+  "homepage": "https://github.com/timoweiss/git-hook-manager"
+}
