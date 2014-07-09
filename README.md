@@ -1,2 +1,10 @@
-git-hook-manager
+# git-hook-manager
 ================
+## Usage
+
+
+`ghm init`
+
+```
+	
+```
