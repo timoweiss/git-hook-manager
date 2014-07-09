@@ -1,4 +1,4 @@
-#!/bin/env node
+#!/usr/bin/env node
 
 var shell = require('shelljs');
 var program = require('commander');
