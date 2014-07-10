@@ -1,5 +1,8 @@
 # git-hook-manager
 ================
+
+**highly experimental, please go away**
+
 ## Usage
 
 
