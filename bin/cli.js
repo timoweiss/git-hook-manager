@@ -8,7 +8,7 @@ var inquirer = require("inquirer");
 checkForGit();
 
 program
-    .option('-a, --add', 'asks you for stuff');
+    .option('-a', '--add', 'asks you for stuff');
 
 program
     .command('init')
@@ -45,7 +45,7 @@ function ask() {
             ],
             validate: function (answer) {
                 if (answer.length < 1) {
-                    return "You must choose at least one topping.";
+                    return "You must choose at least one tool.";
                 }
                 return true;
             }
