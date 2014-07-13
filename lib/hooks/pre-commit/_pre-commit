@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+
+
+var exec = require('child_process').exec;
+
+
+var child;
+var files = [];
+var jsFiles = [];
+/**
+ * get all the changed files
+ * @param  {[type]} error  [description]
+ * @param  {[type]} stdout [description]
+ * @param  {[type]} stderr [description]
+ * @return {[type]}        [description]
+ */
+child = exec("git diff --name-only --cached", function (error, stdout, stderr) {
+    //child = exec("git ls-tree -r HEAD --name-only", function (error, stdout, stderr) {
+
+    files.push(stdout);
+
+    files.map(function (file) {
+        if (file.indexOf('.js') !== -1) {
+            jsFiles.push(file);
+        }
+        exec('jshint ' + file, function (error, stdout, stderr) {
+            console.log(stdout);
+        });
+    });
+
+    if (error !== null) {
+        console.log('exec error: ' + error);
+    }
+});
