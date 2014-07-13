@@ -5,10 +5,13 @@ var program = require('commander');
 // var fs = require('fs');
 var inquirer = require("inquirer");
 
+var builder = require('../lib/builder/builder');
+
 checkForGit();
 
 program
-    .option('-a', '--add', 'asks you for stuff');
+    .option('-a --add', 'asks you for stuff')
+    .option('-l --log', 'logs something');
 
 program
     .command('init')
@@ -20,6 +23,13 @@ program
 program.parse(process.argv);
 
 if (program.add) {
+    console.log(process.cwd());
+    console.log(builder);
+    builder('opt');
+}
+
+
+if (program.log) {
     console.log(process.cwd());
     ask();
 }
@@ -64,19 +74,18 @@ function proceedAnswer(hookType, answer) {
     if (hookType === 'precommit') {
         switch (answer) {
         case 'jshint':
-            console.log('jshint');
-            install('jshint');
+            install(answer);
             break;
         case 'jscs':
-            console.log('jscs', isInstalled(answer));
-            install('jscss');
+            install(answer);
+            break;
         }
     }
 }
 
 function install(module) {
     if (!isInstalled(module)) {
-        wantToInstall(module);
+        wantToInstall(module)
     }
 }
 
